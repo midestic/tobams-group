@@ -25,13 +25,14 @@ interface TaskContextType {
 
 const TaskContext = createContext<TaskContextType | undefined>(undefined);
 
-export function useTasks(): TaskContextType {
+// This is the fix - we need to export useTasks as a named export
+export const useTasks = (): TaskContextType => {
   const context = useContext(TaskContext);
   if (context === undefined) {
     throw new Error("useTasks must be used within a TaskProvider");
   }
   return context;
-}
+};
 
 interface TaskProviderProps {
   children: ReactNode;

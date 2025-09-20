@@ -4,6 +4,7 @@ import "./globals.css";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import Navbar from "@/components/static/Navbar";
+import { TaskProvider } from "@/context/TaskContext";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -28,7 +29,7 @@ export default function RootLayout({
           <AppSidebar />
           <main className="w-full">
             <Navbar />
-            {children}
+            <TaskProvider>{children}</TaskProvider>
           </main>
         </SidebarProvider>
       </body>
