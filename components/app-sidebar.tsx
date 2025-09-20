@@ -1,0 +1,91 @@
+import {
+  Calendar,
+  ChevronDown,
+  Home,
+  Inbox,
+  Plus,
+  Projector,
+  Search,
+  Settings,
+} from "lucide-react";
+
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupAction,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSubButton,
+} from "@/components/ui/sidebar";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "./ui/collapsible";
+import Image from "next/image";
+import Link from "next/link";
+
+// Menu items.
+const items = [
+  {
+    title: "Home",
+    url: "#",
+    icon: Home,
+  },
+  {
+    title: "Inbox",
+    url: "#",
+    icon: Inbox,
+  },
+  {
+    title: "Calendar",
+    url: "#",
+    icon: Calendar,
+  },
+  {
+    title: "Search",
+    url: "#",
+    icon: Search,
+  },
+  {
+    title: "Settings",
+    url: "#",
+    icon: Settings,
+  },
+];
+
+export function AppSidebar() {
+  return (
+    <Sidebar collapsible="icon">
+      <SidebarHeader>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuSubButton asChild>
+              <Link href={"/"}>
+                <Image src={"/next.svg"} alt="logo" width={20} height={20} />
+                <span>Midestic Dash</span>
+              </Link>
+            </SidebarMenuSubButton>{" "}
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarHeader>
+
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel className="font-[700] text-[30px]">
+            Projects
+          </SidebarGroupLabel>
+          <SidebarGroupAction>
+            <Plus /> <span className="sr-only">Add Projects</span>
+          </SidebarGroupAction>
+          <SidebarGroupContent></SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
+    </Sidebar>
+  );
+}
