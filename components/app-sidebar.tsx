@@ -85,6 +85,63 @@ export function AppSidebar() {
           </SidebarGroupAction>
           <SidebarGroupContent></SidebarGroupContent>
         </SidebarGroup>
+
+        <Collapsible defaultOpen className="group/collapsible">
+          <SidebarGroup>
+            <SidebarGroupLabel asChild>
+              <CollapsibleTrigger>
+                <span className="font-[700] text-[16px]"> Projects</span>
+                <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+              </CollapsibleTrigger>
+            </SidebarGroupLabel>
+            <CollapsibleContent>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link
+                        href={"/"}
+                        className=" font-[700] text-[16px] text-white"
+                      >
+                        <Projector /> All Projects
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link
+                        className=" font-[700] text-[16px] text-white"
+                        href={"/"}
+                      >
+                        <Plus /> Design System
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link
+                        className=" font-[700] text-[16px] text-white"
+                        href={"/"}
+                      >
+                        <Plus /> User flow
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>{" "}
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link
+                        className=" font-[700] text-[16px] text-white"
+                        href={"/"}
+                      >
+                        <Plus /> Ux research
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>{" "}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </CollapsibleContent>
+          </SidebarGroup>
+        </Collapsible>
       </SidebarContent>
     </Sidebar>
   );

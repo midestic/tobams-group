@@ -22,11 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={dmSans.variable}>
+    <html lang="en" className={`${dmSans.variable} `}>
       <body>
         <SidebarProvider>
           <AppSidebar />
-          <main>
+          <main className="w-full">
             <Navbar />
             {children}
           </main>
