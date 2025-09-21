@@ -29,8 +29,13 @@ export function AppSidebar() {
           <SidebarMenuItem>
             <SidebarMenuSubButton asChild>
               <Link href={"/"}>
-                <Image src={"/next.svg"} alt="logo" width={20} height={20} />
-                <span>Midestic Dash</span>
+                <Image
+                  src={"/icons/Logo.svg"}
+                  alt="logo"
+                  width={20}
+                  height={20}
+                />
+                <span>Tobams</span>
               </Link>
             </SidebarMenuSubButton>{" "}
           </SidebarMenuItem>
