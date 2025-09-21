@@ -6,13 +6,13 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 export default function Navbar() {
   const username = "Vincent";
   return (
-    <div className="flex  items-center h-[94px] border w-[100%] px-[24px]">
-      <div className="w-[50%] flex items-center gap-[10px]">
+    <div className="flex  items-center h-[94px]  w-[100%] px-[24px] max-md:flex-col">
+      <div className="w-[50%] flex items-center gap-[10px] max-md:w-full">
         <SidebarTrigger />
         <p className="font-[700] text-[20px]">Welcome back, {username} 👋</p>
       </div>
 
-      <div className="w-[50%] flex justify-end items-center">
+      <div className="w-[50%] flex justify-end items-center max-md:w-full max-md:justify-center">
         <div className="flex justify-between items-center gap-[20px]">
           <Image
             src={"/icons/Search.svg"}

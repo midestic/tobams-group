@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import { useTasks } from "@/context/TaskContext";
+import { Button } from "./ui/button";
 
 export default function TaskForm() {
   const [input, setInput] = useState<string>("");
@@ -18,7 +19,7 @@ export default function TaskForm() {
 
   return (
     <form onSubmit={handleSubmit} className="mb-4">
-      <div className="flex gap-2">
+      <div className="flex gap-2 max-md:flex-col">
         <input
           type="text"
           value={input}
@@ -26,12 +27,9 @@ export default function TaskForm() {
             setInput(e.target.value)
           }
           placeholder="Enter a new task..."
-          className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex-1 px-4 py-3 border border-gray-300 rounded-full focus:outline-none  "
         />
-        <button
-          type="submit"
-          className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors flex items-center"
-        >
+        <Button variant={"myBtn"} size={"myBtn"} type="submit">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5 mr-1"
@@ -45,7 +43,7 @@ export default function TaskForm() {
             />
           </svg>
           Add
-        </button>
+        </Button>
       </div>
     </form>
   );

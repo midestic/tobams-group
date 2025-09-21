@@ -1,11 +1,25 @@
-import TaskForm from "@/components/TaskForm";
+"use client";
+
+import TaskList from "@/components/TaskList";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
+import { useState } from "react";
+import { useTasks } from "@/context/TaskContext";
+import AddTask from "@/components/AddTask";
 
 export default function Home() {
+  const { tasks } = useTasks();
+  const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
+
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "active") return !task.completed;
+    if (filter === "completed") return task.completed;
+    return true;
+  });
+
   return (
-    <div className="flex justify-between items-center  w-[100%] px-[24px]">
+    <div className="flex justify-between items-center  w-[100%] px-[24px] max-md:pb-[100px]">
       <Tabs defaultValue="board" className="w-[100%]">
         <div className="flex justify-between">
           <TabsList>
@@ -26,7 +40,7 @@ export default function Home() {
             </TabsTrigger>
           </TabsList>
 
-          <div className="w-[50%] flex justify-end border">
+          <div className="w-[50%] flex justify-end max-md:hidden">
             <div className="flex items-center gap-[10px]">
               <p>Filter</p>
               <p>Sort</p>
@@ -48,9 +62,11 @@ export default function Home() {
           </div>
         </div>
         <TabsContent value="board">
-          <TaskForm />
+          <TaskList tasks={filteredTasks} />
         </TabsContent>
-        <TabsContent value="task">Change your task here.</TabsContent>
+        <TabsContent value="task">
+          <AddTask />
+        </TabsContent>
       </Tabs>
     </div>
   );
