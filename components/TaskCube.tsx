@@ -1,4 +1,3 @@
-// components/TaskCube.tsx
 "use client";
 
 import { useRef } from "react";
@@ -14,18 +13,15 @@ function Cube() {
   const totalCount = tasks.length;
   const completionRatio = totalCount > 0 ? completedCount / totalCount : 0;
 
-  // Calculate color based on completion (red to green gradient)
   const r = 1 - completionRatio;
   const g = completionRatio;
   const b = 0.2;
 
   useFrame((state, delta) => {
     if (meshRef.current) {
-      // Rotate based on completion (faster when more complete)
       meshRef.current.rotation.x += delta * (0.5 + completionRatio);
       meshRef.current.rotation.y += delta * (0.5 + completionRatio);
 
-      // Pulse animation based on completion
       const scale =
         1 + Math.sin(state.clock.elapsedTime * 2) * 0.05 * completionRatio;
       meshRef.current.scale.set(scale, scale, scale);

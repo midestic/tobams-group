@@ -1,4 +1,3 @@
-// context/TaskContext.tsx
 "use client";
 
 import {
@@ -25,7 +24,6 @@ interface TaskContextType {
 
 const TaskContext = createContext<TaskContextType | undefined>(undefined);
 
-// This is the fix - we need to export useTasks as a named export
 export const useTasks = (): TaskContextType => {
   const context = useContext(TaskContext);
   if (context === undefined) {
@@ -41,7 +39,6 @@ interface TaskProviderProps {
 export function TaskProvider({ children }: TaskProviderProps) {
   const [tasks, setTasks] = useState<Task[]>([]);
 
-  // Load tasks from localStorage on initial render
   useEffect(() => {
     const storedTasks = localStorage.getItem("tasks");
     if (storedTasks) {
@@ -53,7 +50,6 @@ export function TaskProvider({ children }: TaskProviderProps) {
     }
   }, []);
 
-  // Save tasks to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);

@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuSubButton,
-} from "./ui/sidebar";
+import { SidebarMenu, SidebarMenuItem } from "./ui/sidebar";
 import Link from "next/link";
 import Image from "next/image";
 

@@ -17,7 +17,7 @@ export default function Home() {
     if (filter === "completed") return task.completed;
     return true;
   });
-
+  console.log(setFilter);
   return (
     <div className="flex justify-between items-center  w-[100%] px-[24px] max-md:pb-[100px]">
       <Tabs defaultValue="board" className="w-[100%]">
@@ -53,11 +53,9 @@ export default function Home() {
                   alt="more"
                 />{" "}
               </span>
-              <Button
-                variant={"myBtn"}
-                size={"myBtn"}
-                children="New template"
-              />
+              <Button variant={"myBtn"} size={"myBtn"}>
+                New template
+              </Button>
             </div>
           </div>
         </div>

@@ -28,6 +28,7 @@ export default function TaskList({ tasks }: TaskListProps) {
       </div>
     );
   }
+  console.log(deleteTask);
 
   return (
     <div className="flex items-start mt-[50px] w-full">
